@@ -1,0 +1,97 @@
+﻿@model IEnumerable<QuanLyKhoHang.Models.SanPham>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="text-align:center">Sản Phẩm</h1>
+
+<p>
+    <a asp-action="Create">Thêm</a>
+</p>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>
+                    Tên sản phẩm
+                    </th>
+                    <th>
+                        Số lượng tồn kho
+                    </th>
+                    <th>
+                        Ngày nhập
+                    </th>
+                    <th>
+                        Danh mục
+                    </th>
+                    <th>
+                        Nhà sản xuất
+                    </th>
+                    <th>
+                        Kho
+                    </th>
+                    <th>
+                        Nhà phân phối
+                    </th>
+                    <th>
+                        Thao tác
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TenSp)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Slton)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NgayNhap)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IddmNavigation.MaDm)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdhxxNavigation.MaNxx)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdkhoNavigation.MaKho)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdnppNavigation.MaNpp)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.MaSp">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.MaSp">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.MaSp">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+</body>
+</html>
+

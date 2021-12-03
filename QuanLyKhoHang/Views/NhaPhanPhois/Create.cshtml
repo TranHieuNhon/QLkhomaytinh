@@ -1,0 +1,41 @@
+﻿@model QuanLyKhoHang.Models.NhaPhanPhoi
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Thêm nhà phân phối mới</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MaNpp" class="control-label"></label>
+                <input asp-for="MaNpp" class="form-control" />
+                <span asp-validation-for="MaNpp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenNpp" class="control-label"></label>
+                <input asp-for="TenNpp" class="form-control" />
+                <span asp-validation-for="TenNpp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Qg" class="control-label"></label>
+                <input asp-for="Qg" class="form-control" />
+                <span asp-validation-for="Qg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Lưu" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Quay Lại</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,62 @@
+﻿@model QuanLyKhoHang.Models.SanPham
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Cập nhật thông tin sản phẩm</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TenSp" class="control-label"></label>
+                <input asp-for="TenSp" class="form-control" />
+                <span asp-validation-for="TenSp" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="MaSp" />
+            <div class="form-group">
+                <label asp-for="Idkho" class="control-label"></label>
+                <select asp-for="Idkho" class="form-control" asp-items="ViewBag.Idkho"></select>
+                <span asp-validation-for="Idkho" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Slton" class="control-label"></label>
+                <input asp-for="Slton" class="form-control" />
+                <span asp-validation-for="Slton" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NgayNhap" class="control-label"></label>
+                <input asp-for="NgayNhap" class="form-control" />
+                <span asp-validation-for="NgayNhap" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Idnpp" class="control-label"></label>
+                <select asp-for="Idnpp" class="form-control" asp-items="ViewBag.Idnpp"></select>
+                <span asp-validation-for="Idnpp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Iddm" class="control-label"></label>
+                <select asp-for="Iddm" class="form-control" asp-items="ViewBag.Iddm"></select>
+                <span asp-validation-for="Iddm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Idhxx" class="control-label"></label>
+                <select asp-for="Idhxx" class="form-control" asp-items="ViewBag.Idhxx"></select>
+                <span asp-validation-for="Idhxx" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Quay Lại</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

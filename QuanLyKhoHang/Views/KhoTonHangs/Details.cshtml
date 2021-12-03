@@ -1,0 +1,29 @@
+﻿@model QuanLyKhoHang.Models.KhoTonHang
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Chi tiết kho tồn</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Tên kho hàng
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TenKho)
+        </dd>
+        <dt class = "col-sm-2">
+            Chi chú
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GhiChup)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.MaKho">Edit</a> |
+    <a asp-action="Index">Quay Lại</a>
+</div>
